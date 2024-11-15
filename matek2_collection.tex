@@ -13,11 +13,13 @@
 \newcommand{\dExpo}{\mathrm{Expo}}
 
 
-% [x]: should not move to physics package, obsolete ds, dx, dt
-% TODO: replace | by \mid in integration limits?
-% [x] TODO: clean ugly imported from word part! removed :)
+% [x] should not move to physics package, obsolete ds, dx, dt
+% [x] clean ugly imported from word part! removed :)
+% [x] separate exam collection
 % TODO: clean up title_bor part
-% TODO: separate exam collection
+% TODO: replace | by \mid in integration limits?
+% TODO: copy to stochastic_pro (in progress)
+
 
 \newcommand{\dx}{\mathrm{d}x}
 \newcommand{\dt}{dt}
@@ -64,10 +66,12 @@ Answer all SIX questions of this section. Each question is worth 10 points.
 
 \begin{enumerate}
 \item The joint distribution of vector $(X,Y)$ is given by $\P(X=i,Y=j)=0.1$  for $1\leq i\leq j\leq 4$. Find $\E(Y\mid X)$.
-\item The random variable $X$ is exponentially distributed with parameter $\lambda$. The random variable $Y$ is exponentially distributed with parameter $1/X$. Find $\E(Y \mid X)$, $\E(Y)$  and $\Var(Y)$.
+\item The random variable $X$ is exponentially distributed with parameter $\lambda$. 
+The random variable $Y$ is exponentially distributed with parameter $1/X$. 
+Find $\E(Y \mid X)$, $\E(Y)$  and $\Var(Y)$.
 \item Let $Y_t=W_t^3-3tW_t$.
 \begin{enumerate}
-\item Using Ito’s lemma find $dY_t$.
+\item Using Ito's lemma find $dY_t$.
 \item Using your previous result find $\E(Y_t)$ and $\Var(Y_t)$.
 \end{enumerate}
 
@@ -101,19 +105,17 @@ Part B lasts for 70 minutes.
 \begin{enumerate}[resume]
 \item  In the framework of the Black and Scholes model find the price at $t=0$ of an asset that pays $\max\{0,\ln S_T\}$  at time $T$, where $S_T$ denotes the price of one share at time $T$.
 
-\item Let’s consider the following system of stochastic differential equations
+\item Let's consider the following system of stochastic differential equations
 \[
-\left\{
-  \begin{array}{l}
+\begin{cases}
     dX_t=aX_t dt-Y_t dW_t \\
     dY_t=aY_t dt+X_t dW_t
-  \end{array}
-\right.
+\end{cases}
 \]
-with initial conditions $X_0=x_0$ and $Y_0=0$
+with initial conditions $X_0=x_0$ and $Y_0=0$.
 \begin{enumerate}
-\item Find the solution of the form $X_t=f(t)\cos W_t$ and $Y_t=g(t)\sin W_t$
-\item Prove that for any solution $D_t=X_t^2+Y_t^2$ is nonstochastic
+\item Find the solution of the form $X_t=f(t)\cos W_t$ and $Y_t=g(t)\sin W_t$.
+\item Prove that for any solution $D_t=X_t^2+Y_t^2$ is nonstochastic.
 \end{enumerate}
 
 
@@ -133,10 +135,7 @@ with initial conditions $X_0=x_0$ and $Y_0=0$
 
 \begin{enumerate}
 \item Joint distribution table of $X$ and $Y$ is:
-\begin{table}[h!]
-\centering
-%\caption{Caption for the table.}
-\label{tab:discrete_eyx}
+
 \begin{tabular}{lllll}
 \toprule
 $X/Y$ & $1$ & $2$ & $3$ & $4$\\
@@ -147,10 +146,8 @@ $X/Y$ & $1$ & $2$ & $3$ & $4$\\
 4& 0 & 0 & 0 & 0.1 \\
 \bottomrule
 \end{tabular}
-\end{table}
 
 Fixing a certain value of $X$ we find the conditional expectation of $Y$:
-
 \[
 \E(Y \mid X) =
 \begin{cases}
@@ -161,7 +158,7 @@ Fixing a certain value of $X$ we find the conditional expectation of $Y$:
 \end{cases}
 \]
 
-Or, simply, $\E(Y \mid X)=2 + X/2$.
+Or, simply, $\E(Y \mid X) = 2 + X/2$.
 
 \item Variable $X$ has exponential distribution, so
 \[
@@ -171,39 +168,33 @@ And we know conditional distribution of $Y$:
 \[
 f_{Y \mid X}(x,y)=\frac{1}{x} e^{-\frac{1}{x}y}
 \]
-
 So,
 \[
-\E(Y \mid X) = \int _{-\infty}^{+\infty}  y { f_{Y \mid X}(X,y)} dy=  \int _0^{+\infty} y  \frac{1}{X} e^{-\frac{1}{X}y} dy =  \left( {\frac{1}{X} }\right) ^{-1} = X
+\E(Y \mid X) = \int_{-\infty}^{+\infty}  y { f_{Y \mid X}(X,y)} dy=  \int _0^{+\infty} y  \frac{1}{X} e^{-\frac{1}{X}y} dy =  (1/X)^{-1} = X.
 \]
-
-
 Expected value:
 \[
 \E(Y) =\E(\E(Y \mid X)) =\E(X) =  \int _{-\infty}^{+\infty}x f_X(x) \, dx=  \int _0^{+\infty} x \lambda e^{-\lambda x} \, dx =\lambda^{-1}
 \]
-
 Variance:
-\begin{multline*}
-\Var(Y) =\Var(\E(Y \mid X))+ \E( \Var(Y \mid X)) = \\
-= \Var(X)+ \E \left( \left({\frac{1}{X} }\right) ^{-2}\right)=
-\lambda^{-2}+  \E (X^2)
-\end{multline*}
-
-We know that $ \E (X^2) = \Var(X) + (\E(X))^2$, so:
+\[
+\Var(Y) =\Var(\E(Y \mid X))+ \E( \Var(Y \mid X)) = \Var(X)+ \E ((1/X)^{-2})= \lambda^{-2} + \E(X^2)
+\]
+We know that $\E(X^2) = \Var(X) + (\E(X))^2$, so:
 \[
 \Var(Y) = \lambda^{-2}+\lambda^{-2} + \lambda^{-2} = 3\lambda^{-2}
 \]
 
-\item Using Ito’s lemma $dY_t = (3W_t^2 - 3t) \, dW_t + (-3W_t + \frac{1}{2}6W_t) \, dt= (3W_t^2 - 3t) \, dW_t$. Hence, $Y_t$ is a martingale. $Y_0=W_0^3-3\cdot 0 W_0=0$.
+\item Using Ito's lemma $dY_t = (3W_t^2 - 3t) \, dW_t + (-3W_t + \frac{1}{2}6W_t) \, dt= (3W_t^2 - 3t) \, dW_t$. 
+Hence, $Y_t$ is a martingale. $Y_0 = W_0^3 - 3\cdot 0 W_0 = 0$.
 
-Now $\E(Y_t)=\E(Y_0)=0$ and using Ito's isometry:
+Now $\E(Y_t) = \E(Y_0) = 0$ and using Ito's isometry:
 \[
 \Var(Y_t)=
 \int_0^t \E((3W_s^2-3s)^2) \, ds = \int_0^t 27s^2 +9s^2-18s^2 \, ds = \int_0^t 18s^2 \, ds = 6t^3
 \]
-
-Here we have used the facts that $\E(W_s^2)=s$ and $\E(W_s^4)=3s^2$.
+%
+Here we have used the facts that $\E(W_s^2) = s$ and $\E(W_s^4) = 3s^2$.
 \item
 \item
 \item
@@ -219,38 +210,35 @@ dX_t=f_t'(t) \cos W_t dt -f(t)\sin W_t \, dW_t-0.5f(t)\cos W_t\, dt=\\
 dY_t=g_t'(t) \sin W_t \, dt +g(t)\cos W_t \, dW_t-0.5g(t)\sin W_t\,dt=\\
 = (g_t'(t)-0.5g(t))\sin W_t\,dt +g(t)\cos W_t \,dWt
 \end{multline*}
-
+%
 Comparing these expressions with the system we receive:
-
 \[
-\begin{array}{rcl}
-f_t'(t)-0.5f(t) &=& af(t)\\
-f(t)&=&g(t)\\
- g_t'(t)-0.5g(t)&=&ag(t)\\
-g(t)&=&f(t)
-\end{array}
+\begin{cases}
+f_t'(t)-0.5f(t) = af(t)\\
+f(t) = g(t)\\
+ g_t'(t)-0.5g(t) = ag(t)\\
+g(t) = f(t)
+\end{cases}
 \]
-
+%
 The general solution has the form
 \[
 f(t)=g(t)=A e^{(a+0.5)t}, \quad A\in  \RR
 \]
-
+%
 From initial condition we get $A=x_0$ and
 \[
 f(t)=g(t)=x_0 e^{(a+0.5)t}
 \]
-
+%
 Answer:
-
 \[
 \begin{array}{l}
 X_t=x_0+x_0\int_0^{t} a e^{(a+0.5)u} \cos W_u du - x_0\int_0^{t} e^{(a+0.5)t}\sin W_u \,dWu\\
 Y_t=x_0\int_0^{t} a e^{(a+0.5)u} \sin W_u du +x_0\int_0^{t} e^{(a+0.5)t}\cos W_u \, dWu
 \end{array}
 \]
-
-
+%
 Now we use Ito's lemma once again:
 \begin{multline*}
 dD_t=2X_t \, dX_t+2Y_t \, dY_t=2X_t((f_t'(t)-0.5f(t))\cos W_t \, dt -f(t)\sin W_t \,dWt)+\\
@@ -259,12 +247,14 @@ dD_t=2X_t \, dX_t+2Y_t \, dY_t=2X_t((f_t'(t)-0.5f(t))\cos W_t \, dt -f(t)\sin W_
 +2f(t)(f_t'(t)-0.5f(t))\sin^2 W_t \, dt+f^2(t)\cos W_t\sin W_t\,dWt=\\
 =2f(t)(f_t'(t)-0.5f(t) \, dt=2af^2(t)\,dt
 \end{multline*}
-
+%
 \[
 D_t=D_0+\int_0^{t} 2a x_0 e^{(2a+1)u }du= x_0^2+\frac{2ax_0}{2a+1}(e^{(2a+1)t}-1)
 \]
 
 \end{enumerate}
+
+% copied to stochastic_pro up to this line
 
 \subsection{Retake, ??.??.2009}
 
@@ -1735,7 +1725,7 @@ Here $W_t$ always denotes the standard Wiener process.
 \vspace{10pt}
 
 \begin{center}
-\includegraphics[width=7cm]{gatsby}
+\includegraphics[width=7cm]{figures/gatsby.jpg}
 \end{center}
 
 \vspace{10pt}
@@ -1999,7 +1989,7 @@ You can launch a torpedo each minute at any integer on the number line. If the t
 
 \item It is $25^\circ C$ in Australia today. Each day the temperature goes one degree up or down with equal probability. Each day I will put the sum equal to the temperature in my piggy bank. So today I will put $25$ roubles. I will stop my investment strategy when the temperature will reach $15^\circ C$ or $30^\circ C$ for the first time.
 
-\includegraphics[scale=0.25]{piggy.png}
+\includegraphics[scale=0.25]{figures/piggy.png}
 
 What will be the expected value of my account in my piggy bank?
 
@@ -2202,7 +2192,7 @@ You may use the following guiding steps:
 
 
 \begin{center}
-\includegraphics[width=12cm]{correlation.png}
+\includegraphics[width=12cm]{figures/correlation.png}
 \end{center}
 
 
