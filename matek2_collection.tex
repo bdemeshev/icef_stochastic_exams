@@ -254,7 +254,7 @@ D_t=D_0+\int_0^{t} 2a x_0 e^{(2a+1)u }du= x_0^2+\frac{2ax_0}{2a+1}(e^{(2a+1)t}-1
 
 \end{enumerate}
 
-% copied to stochastic_pro up to this line
+
 
 \subsection{Retake, ??.??.2009}
 
@@ -268,18 +268,22 @@ Part A.
 Answer all SIX questions of this section. Each question is worth 10 points.
 
 \begin{enumerate}
-\item In the first bag there balls numbered from 0 to 9, in the second bag there are balls numbered from 1 to 10. Two balls were selected. You know that one ball was selected from the first bag and one from the second one. You will select at random one ball from these two and you will know only its number. Let’s denote its number by $X$ and the number of the other of the two balls by $Y$.
+\item In the first bag there balls numbered from $0$ to $9$, in the second bag there are balls numbered from $1$ to $10$. 
+One ball was selected from the first bag and one ball from the second one. 
+You will select at random one ball from these two and you will know only its number. 
+Let's denote its number by $X$ and the number of the other of the two balls by $Y$.
 
-Find $\E(Y\mid X)$
+Find $\E(Y\mid X)$.
 
-\item The random variable $X$ is uniformly distributed on $[0;a]$. The random variable $Y$ is uniformly distributed on $[0;X]$.
+\item The random variable $X$ is uniformly distributed on $[0;a]$. 
+Conditionally of $X$ the random variable $Y$ is uniformly distributed on $[0;X]$.
 
 Find $\E(Y\mid X)$, $\E(Y)$  and $\Var(Y)$.
-\item Let
-$Y_t=\exp\left(-aW_t-\frac{a^2}{2}t\right)$.
+
+\item Let $Y_t=\exp(-aW_t-{a^2 t}/{2}$.
 \begin{enumerate}
-\item Using Ito’s lemma find $dY_t$
-\item Using your previous result find $\E(Y_t)$ and $\Var(Y_t)$
+\item Using Ito's lemma find $dY_t$.
+\item Using your previous result find $\E(Y_t)$ and $\Var(Y_t)$.
 \end{enumerate}
 
 \item Find extremals for the integral
@@ -304,9 +308,13 @@ Answer two questions out of the three from this section. Each question is worth 
 Part B lasts for 70 minutes.
 
 \begin{enumerate}[resume]
-\item In the framework of the Black and Scholes model find the price at $t=0$  of an asset that pays $\min\{M,\ln S_t\}$  at time $T$, where $S_T$ denotes the price of one share at time $T$,  $M$ — arbitrary constant, specified at the moment of the issue.
+\item In the framework of the Black and Scholes model find the price at $t=0$  of an asset that pays $\min\{M,\ln S_t\}$  at time $T$.
+Here  $S_T$ denotes the price of one share at time $T$, $M$ — arbitrary constant, specified at the moment of the issue.
 
-\item The price of a share in euros is driven by the equation $dS=\sigma S dW+\alpha S dt$, the dollar/euro exchange rate is driven by the equation $dU=b U dW+c U dt$. Find the current price in dollars of a European call option with maturity date $T$, strike price $K$.
+\item The price of a share in euros is driven by the equation $dS=\sigma S dW+\alpha S dt$, 
+the dollar/euro exchange rate is driven by the equation $dU=b U dW+c U dt$. 
+
+Find the current price in dollars of a European call option with maturity date $T$, strike price $K$.
 
 \item Consider the profit-maximizing problem for a representative competitive firm
 $\int_0^{\infty} (p-c(x(t)))q(t)e^{-rt}\,dt \to \max$
@@ -323,19 +331,16 @@ $\int_0^{\infty} (p-c(x(t)))q(t)e^{-rt}\,dt \to \max$
 \begin{enumerate}
 \item If $X=0$ we know that that the chosen ball was in the first basket, consequently $Y$ was in the second one.
 \[
-\E(Y \mid X=0) = \E(Y \mid  \text{ second basket } )=\frac{1+2+\dots+10}{10}=5.5
+\E(Y \mid X=0) = \E(Y \mid Y \text{ from second basket } )=\frac{1+2+\dots+10}{10}=5.5
 \]
-
 Similarly
 \[
-\E(Y \mid X=10) = \E(Y \mid \text{ first basket } )=\frac{0+1+\dots+9}{10}=4.5
+\E(Y \mid X=10) = \E(Y \mid Y \text{ from first basket } )=\frac{0+1+\dots+9}{10}=4.5
 \]
-
 Finaly,
 \[
-\E(Y \mid 0<X<10) = \frac{1}{2}\E(Y \mid \text{ first basket }) +\frac{1}{2}\E(Y \mid \text{ second basket })=0.5(5.5+4.5)=5
+\E(Y \mid 0<X<10) = \frac{1}{2}\E(Y \mid Y \text{ from first basket }) +\frac{1}{2}\E(Y \mid Y \text{ from second basket }) = 0.5 (5.5 + 4.5) = 5
 \]
-
 Answer:
 \[
 \E(Y \mid X) =
@@ -355,7 +360,7 @@ Answer:
 
 \item 
 \[
-X_0 = \E_{\tilde{p}}\left( \exp\left( - rT \right)X_{T} \mid \cF_0  \right)
+X_0 = \E_{\tilde{p}}( \exp( - rT )X_{T} \mid \cF_0)
 \]
 
 
@@ -365,6 +370,8 @@ stock prices are in euros.
 \end{enumerate}
 
 \section{2009-2010}
+
+% copied to stochastic_pro up to this line
 
 \subsection{Exam, 14.01.2010}
 
