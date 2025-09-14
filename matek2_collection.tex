@@ -371,8 +371,6 @@ stock prices are in euros.
 
 \section{2009-2010}
 
-% copied to stochastic_pro up to this line
-
 \subsection{Exam, 14.01.2010}
 
 Final exam consists of the two parts: A and B. Part A lasts for 120 minutes.
@@ -385,7 +383,7 @@ Part A.
 Answer all SIX questions of this section. Each question is worth 10 points.
 
 \begin{enumerate}
-\item  The joint distribution of the random vector $(X,Y)$ is given by its p.d.f
+\item  The joint distribution of the random vector $(X,Y)$ is given by its probability density function
 \[
 f(x,y)=
 \left\{
@@ -395,9 +393,10 @@ f(x,y)=
   \end{array}
 \right.
 \]
-where $c$ is a normalization constant. Find $\E(X\mid Y)$.
+where $c$ is a normalization constant. 
+Find $\E(X\mid Y)$.
 
-\item Let $Y_t=W_t^3-tW_t^4$. Find $\E(Y_t)$ and $\Var(Y_t)$.  You don’t have to use Ito Lemma here.
+\item Let $Y_t=W_t^3-tW_t^4$. Find $\E(Y_t)$ and $\Var(Y_t)$.  You don't have to use Ito Lemma here.
 \item Let $X_n$ be a discrete time stochastic process that converges in probability to a random number $X$ as $n\to \infty$. Does this condition imply that $X_n$ converges to $X$ in mean? Almost surely? In distribution? Support at least one of your answers with a proof or counterexample. Give a definition for each type of convergence.
 \item Seek to optimize the integral
 $\int_0^{\frac{\ln 2}{2}} (4u-u^2-x-3x^2)\,dt$
@@ -514,6 +513,8 @@ X_t=e^{-\frac{t}{\tau}}Y_t= e^{-\frac{t}{\tau}} (X_0+X_{\infty}(e^{\frac{t}{\tau
 
 \section{2010-2011}
 
+% copied to stochastic_pro up to this line
+
 \subsection{Exam, 12.01.2011}
 
 Notation: $W_t$ is the standard Wiener process.
@@ -524,12 +525,12 @@ Part A (10 points each problem). Time allowed: 120 minutes.
 
 \begin{enumerate}
 \item The joint probability density function of $X$ and $Y$ is given by
-\begin{equation}
+\[
 f(x,y)=\begin{cases}
 x+y, \quad x\in[0;1],\, y\in [0;1] \\
-0, \quad \mbox{otherwise}
-\end{cases} \nonumber
-\end{equation}
+0, \quad \text{otherwise}
+\end{cases} 
+\]
 Find $\E(Y \mid X)$ in terms of $X$, find the probability density function of  $\E(Y \mid X)$
 \item Consider the process $X_t=\int_0^t sW_s\,dW_s$. Find $\E(X_t)$, $\Var(X_t)$, $\Cov(X_t,W_t)$
 \item The process $Y_t$ is given by $Y_t=2W_t+5t$. The stopping time $\tau$ is given by $\tau=\min\{t \mid Y_t^2=100\}$. Find the distribution of the random variable $Y_\tau$ and the expected value $\E(\tau)$.
@@ -539,9 +540,9 @@ Hint: you may find the martingales $a^{Y_t}$ and $Y_t-f(t)$ useful
 \item Find $\P(W_2-W_1>2)$
 \item In the framework of Black and Scholes model find the price of an asset which gives you the payoff of $1$ rubble only if the final price $S_t$ is at least two times bigger than the initial price $S_0$ of the asset.
 \item Consider the free end problem, where $T>0$ is not given
-\begin{equation}
-\int_0^T (\dot{x}^2-x+1)dt \to extr \nonumber
-\end{equation}
+\[
+\int_0^T (\dot{x}^2-x+1)dt \to extr 
+\]
 At the left end $x(0)=0$
 Find the optimal $T$ value and the extremal. Check that you solved the optimality problem or show the opposite.
 \end{enumerate}
